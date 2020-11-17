@@ -27,6 +27,7 @@
 \instytut{XXXXXX}
 \kierunek{XXXXXX}
 \specjalnosc{XXXXXX}
+\przedmiot{Laboratorium Systemów Lotniczych}
 \title{
     Niepotrzebnie długi i skomplikowany tytuł pracy \\
     trudny do przeczytania, zrozumienia i wymówienia
@@ -44,49 +45,45 @@
 %--------------------------------------
 % Streszczenie po polsku
 %--------------------------------------
-\cleardoublepage % Zaczynamy od nieparzystej strony
-\streszczenie \lipsum[1-3]
-\slowakluczowe XXX, XXX, XXX
+% \cleardoublepage % Zaczynamy od nieparzystej strony
+% \streszczenie \lipsum[1-3]
+% \slowakluczowe XXX, XXX, XXX
 
 %--------------------------------------
 % Streszczenie po angielsku
 %--------------------------------------
-\newpage
-\abstract \kant[1-3]
-\keywords XXX, XXX, XXX
+% \newpage
+% \abstract \kant[1-3]
+% \keywords XXX, XXX, XXX
 
 %--------------------------------------
 % Oświadczenie o autorstwie
 %--------------------------------------
-\cleardoublepage  % Zaczynamy od nieparzystej strony
-\pagestyle{plain}
-\makeauthorship
+% \cleardoublepage  % Zaczynamy od nieparzystej strony
+% \pagestyle{plain}
+% \makeauthorship
 
 %--------------------------------------
 % Spis treści
 %--------------------------------------
-\cleardoublepage % Zaczynamy od nieparzystej strony
+% \cleardoublepage % Zaczynamy od nieparzystej strony
+\newpage
 \tableofcontents
 
 %--------------------------------------
 % Rozdziały
 %--------------------------------------
-\cleardoublepage % Zaczynamy od nieparzystej strony
+% \cleardoublepage % Zaczynamy od nieparzystej strony
+\newpage
 \pagestyle{headings}
 
 \input{tex/1-wstep}         % Wygodnie jest trzymać każdy rozdział w osobnym pliku.
-\input{tex/2-de-finibus}    % Umożliwia to również łatwą migrację do nowej wersji szablonu:
-\input{tex/3-code-listings} % wystarczy podmienić swoje pliki main.tex i eiti-thesis.cls
-                            % na nowe wersje, a cały tekst pracy pozostaje nienaruszony.
-
-\newpage % Rozdziały zaczynamy od nowej strony
-\section{Summatio}          % Można też pisać rozdziały w jednym pliku.
-\lipsum[5-10]
 
 %--------------------------------------------
 % Literatura
 %--------------------------------------------
-\cleardoublepage % Zaczynamy od nieparzystej strony
+% \cleardoublepage % Zaczynamy od nieparzystej strony
+\newpage
 \printbibliography
 
 %--------------------------------------------
@@ -107,9 +104,9 @@
 % //AB
 \vspace{0.8cm}
 \acronymlist
-\acronym{EiTI}{Wydział Elektroniki i Technik Informacyjnych}
-\acronym{PW}{Politechnika Warszawska}
-\acronym{WEIRD}{ang. \emph{Western, Educated, Industrialized, Rich and Democratic}}
+% \acronym{EiTI}{Wydział Elektroniki i Technik Informacyjnych}
+% \acronym{PW}{Politechnika Warszawska}
+% \acronym{WEIRD}{ang. \emph{Western, Educated, Industrialized, Rich and Democratic}}
 
 \listoffigurestoc     % Spis rysunków.
 \vspace{1cm}          % vertical space
@@ -119,12 +116,11 @@
 
 % Załączniki
 \newpage
-\appendix{Nazwa załącznika 1}
-\lipsum[1-8]
+\include{tex/appx1-opiskodu}
 
-\newpage
-\appendix{Nazwa załącznika 2}
-\lipsum[1-4]
+% \newpage
+% \appendix{Nazwa załącznika 2}
+% \lipsum[1-4]
 
 % Używając powyższych spisów jako szablonu,
 % możesz tu dodać swój własny wykaz bądź listę,

@@ -25,7 +25,7 @@
 \DeclareStringOption[2.5cm]{right}
 \DeclareStringOption[2.5cm]{top}
 \DeclareStringOption[2.5cm]{bottom}
-\DeclareStringOption[6mm]{bindingoffset}
+\DeclareStringOption[0mm]{bindingoffset}
 \DeclareBoolOption[false]{nohyphenation}
 \ProcessKeyvalOptions*
 
@@ -136,6 +136,8 @@
 
     \end{luacode}
 \fi
+
+\RequirePackage{csquotes}   % Fix VS Code warning in main
 
 %--------------------------------
 % Produce clickable hyperlinks
@@ -365,6 +367,9 @@
 \newcommand{\engtitle}[1]{
     \newcommand{\@engtitle}{#1}
 }
+\newcommand{\przedmiot}[1]{
+    \newcommand{\@przedmiot}{#1}
+}
 
 %--------------------------------
 % Strona tytułowa
@@ -377,53 +382,56 @@
     \pagenumbering{gobble}
 
     \begin{center}
+        \hfill \break
+        \hfill \break
+        \@przedmiot \\
         %\sffamily
-        \ifnum \pdf@strcmp{\@lang}{polish} = 0
-            \includegraphics[width=\textwidth]{eiti/header.png} \\
-        \fi
-        \ifnum \pdf@strcmp{\@lang}{english} = 0
-            \includegraphics[width=\textwidth]{eiti/header-eng.png} \\
-        \fi
-        \hfill \break
-        \hfill \break
-        \ifnum \pdf@strcmp{\@lang}{polish} = 0
-            Instytut \@instytut \\
-        \fi
-        \ifnum \pdf@strcmp{\@lang}{english} = 0
-            Institute of \@instytut \\
-        \fi
-        \hfill \break
-        \hfill \break
-        \hfill \break
-        \ifnum \pdf@strcmp{\ThesisType}{Engineer} = 0
-            \ifnum \pdf@strcmp{\@lang}{polish} = 0
-                \includegraphics[width=\textwidth]{eiti/title-inz.png} \\
-            \fi
-            \ifnum \pdf@strcmp{\@lang}{english} = 0
-                \includegraphics[width=\textwidth]{eiti/title-inz-eng.png} \\
-            \fi
-        \fi
-        \ifnum \pdf@strcmp{\ThesisType}{Master} = 0
-            \ifnum \pdf@strcmp{\@lang}{polish} = 0
-                \includegraphics[width=\textwidth]{eiti/title-mgr.png} \\
-            \fi
-            \ifnum \pdf@strcmp{\@lang}{english} = 0
-                \includegraphics[width=\textwidth]{eiti/title-mgr-eng.png} \\
-            \fi
-        \fi
-        \hfill \break
-        \ifnum \pdf@strcmp{\@lang}{polish} = 0
-            na~kierunku \@kierunek \\
-        \fi
-        \ifnum \pdf@strcmp{\@lang}{english} = 0
-            in~the~field~of~study \@kierunek \\
-        \fi
-        \ifnum \pdf@strcmp{\@lang}{polish} = 0
-            w~specjalności \@specjalnosc \\
-        \fi
-        \ifnum \pdf@strcmp{\@lang}{english} = 0
-            and~specialisation \@specjalnosc \\
-        \fi
+        % \ifnum \pdf@strcmp{\@lang}{polish} = 0
+        %     \includegraphics[width=\textwidth]{eiti/header.png} \\
+        % \fi
+        % \ifnum \pdf@strcmp{\@lang}{english} = 0
+        %     \includegraphics[width=\textwidth]{eiti/header-eng.png} \\
+        % \fi
+        % \hfill \break
+        % \hfill \break
+        % \ifnum \pdf@strcmp{\@lang}{polish} = 0
+        %     Instytut \@instytut \\
+        % \fi
+        % \ifnum \pdf@strcmp{\@lang}{english} = 0
+        %     Institute of \@instytut \\
+        % \fi
+        % \hfill \break
+        % \hfill \break
+        % \hfill \break
+        % \ifnum \pdf@strcmp{\ThesisType}{Engineer} = 0
+        %     \ifnum \pdf@strcmp{\@lang}{polish} = 0
+        %         \includegraphics[width=\textwidth]{eiti/title-inz.png} \\
+        %     \fi
+        %     \ifnum \pdf@strcmp{\@lang}{english} = 0
+        %         \includegraphics[width=\textwidth]{eiti/title-inz-eng.png} \\
+        %     \fi
+        % \fi
+        % \ifnum \pdf@strcmp{\ThesisType}{Master} = 0
+        %     \ifnum \pdf@strcmp{\@lang}{polish} = 0
+        %         \includegraphics[width=\textwidth]{eiti/title-mgr.png} \\
+        %     \fi
+        %     \ifnum \pdf@strcmp{\@lang}{english} = 0
+        %         \includegraphics[width=\textwidth]{eiti/title-mgr-eng.png} \\
+        %     \fi
+        % \fi
+        % \hfill \break
+        % \ifnum \pdf@strcmp{\@lang}{polish} = 0
+        %     na~kierunku \@kierunek \\
+        % \fi
+        % \ifnum \pdf@strcmp{\@lang}{english} = 0
+        %     in~the~field~of~study \@kierunek \\
+        % \fi
+        % \ifnum \pdf@strcmp{\@lang}{polish} = 0
+        %     w~specjalności \@specjalnosc \\
+        % \fi
+        % \ifnum \pdf@strcmp{\@lang}{english} = 0
+        %     and~specialisation \@specjalnosc \\
+        % \fi
         \hfill \break
         \hfill \break
         \large
@@ -439,15 +447,15 @@
         \ifnum \pdf@strcmp{\@lang}{english} = 0
             student record book number \@album \\
         \fi
-        \hfill \break
-        \hfill \break
-        \ifnum \pdf@strcmp{\@lang}{polish} = 0
-            promotor \\
-        \fi
-        \ifnum \pdf@strcmp{\@lang}{english} = 0
-            thesis supervisor \\
-        \fi
-        \@promotor \\
+        % \hfill \break
+        % \hfill \break
+        % \ifnum \pdf@strcmp{\@lang}{polish} = 0
+        %     promotor \\
+        % \fi
+        % \ifnum \pdf@strcmp{\@lang}{english} = 0
+        %     thesis supervisor \\
+        % \fi
+        % \@promotor \\
         \vfill
         \ifnum \pdf@strcmp{\@lang}{polish} = 0
             WARSZAWA \@date
